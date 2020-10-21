@@ -1,25 +1,27 @@
 package com.thinkman.thinkwebflux.routes;
 
+import com.thinkman.thinkwebflux.handler.TimeHandler;
+import com.thinkman.thinkwebflux.handler.UserHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
-import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @Configuration
-public class HomeRoute {
+public class UserRoute {
+    @Autowired
+    private TimeHandler timeHandler;
+
+    @Autowired
+    private UserHandler userHandler;
 
     @Bean
-    RouterFunction<ServerResponse> home() {
-        return route(GET("/home"), request -> ok().body(fromValue("Home page")));
+    RouterFunction<ServerResponse> login() {
+        return route(GET("/user/login"), userHandler::login);
     }
 
-    @Bean
-    RouterFunction<ServerResponse> about() {
-        return route(GET("/about"), request -> ok().body(fromValue("About page")));
-    }
 }

@@ -1,0 +1,13 @@
+spring:
+  r2dbc:
+    url: r2dbc:pool:mysql://localhost:3306/db_thinkman?sslMode=DISABLED
+    username: root
+    password: Ab123145
+#    pool:
+#      max-size: 16
+#      initial-size: 8
+#      enabled: true
+#      validation-query: SELECT 1
+  reactor:
+    debug-agent:
+      enabled: true
