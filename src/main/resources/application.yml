@@ -1,6 +1,6 @@
 spring:
   r2dbc:
-    url: r2dbc:pool:mysql://localhost:3306/db_thinkman?sslMode=DISABLED
+    url: r2dbc:pool:mysql://thinkman-wang.uicp.io:24709/db_thinkman?sslMode=DISABLED
     username: root
     password: Ab123145
 #    pool:
